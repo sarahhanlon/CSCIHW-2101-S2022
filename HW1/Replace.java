@@ -8,9 +8,9 @@ package HW1;
 // HELLO
 // 01234
 public class Replace {
-    public String charReplace(String s, int x, char z) {
-        return null;
+    public static String charReplace(String s, int x, char z) {
+        return s.substring(0, x) + z + s.substring(x + 1);
         
-    }
-    
+        
+    }    
 }
