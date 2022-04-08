@@ -28,9 +28,24 @@ public class BankAccount {
         balance = balance - amount;
     }
 
+ //overdraft method
+    public void overDraft(double value){
+        balance = (balance - value) - 35;
+    }
+
+ //transfer method
+    public void transfer(BankAccount bank, BankAccount bank2, double amount){
+        bank.withdraw(amount);
+        bank2.deposit(amount);
+    }   
 
     public void monthlyfee(){
         withdraw(10);
+    }
+
+// savings account
+    public void savingsAcc(){
+
     }
 
     // P(1+ R/n)^(nt) - P 
@@ -42,8 +57,16 @@ public class BankAccount {
     public void calcInterest(double p, int t, double r, int n){
         double amount =  p * Math.pow(1 + (r/n), n*t);
         double compinterest = amount - p;
-        System.out.println("Compund Interest after "+ t + " years: "+ compinterest);
+        System.out.println("Compound Interest after "+ t + " years: "+ compinterest);
         System.out.println("Amount after "+ t +" years: "+ amount);
+    }
+
+ //simple interest method
+    public void calcSimpleInterest(double p, int t, double r){
+        double amount = (p * r * t)/100;
+        double simpinterest = amount + p;
+        System.out.println("Simple Interest after " + t + " years: " + amount);
+        System.out.println("Amount after " + t + " years: " + simpinterest);
     }
 
     public static int menu(){
@@ -57,6 +80,8 @@ public class BankAccount {
         System.out.println("2: Deposit");
         System.out.println("3: Withdraw");
         System.out.println("4: Compund Interest");
+        System.out.println("5: Simple Interest");
+        System.out.println("6: Transfer");
         System.out.println("0: Quit");
         System.out.println("-------------------------");
 
