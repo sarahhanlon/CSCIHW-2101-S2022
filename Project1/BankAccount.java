@@ -38,14 +38,17 @@ public class BankAccount {
         bank.withdraw(amount);
         bank2.deposit(amount);
     }   
+//savings account
+    public void savingsAccountSimple(BankAccount bank, int years){
+        bank.calcSimpleInterest(bank.getBalance(), years, 0.001);
+    }
+
+    public void savingsAccountCompound(BankAccount bank, int years){
+        bank.calcInterest(bank.getBalance(), years, 0.001, 4);
+    }
 
     public void monthlyfee(){
         withdraw(10);
-    }
-
-// savings account
-    public void savingsAcc(){
-
     }
 
     // P(1+ R/n)^(nt) - P 
@@ -74,22 +77,22 @@ public class BankAccount {
         Scanner input = new Scanner(System.in);
 
         /************************ */
-        System.out.println("Please select and option:");
+        System.out.println("Please select an option:");
         System.out.println("-------------------------");
         System.out.println("1: Get Balance");
         System.out.println("2: Deposit");
         System.out.println("3: Withdraw");
-        System.out.println("4: Compund Interest");
-        System.out.println("5: Simple Interest");
-        System.out.println("6: Transfer");
+        System.out.println("4: Create a Savings Account");
+        System.out.println("5: Compound Interest");
+        System.out.println("6: Simple Interest");
+        System.out.println("7: Transfer");
         System.out.println("0: Quit");
         System.out.println("-------------------------");
 
         selection = input.nextInt();
-
+       
 
         return selection;
-
 
     }
 

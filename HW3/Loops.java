@@ -17,7 +17,17 @@ public class Loops {
     //eeeeat -> false
 
     public static boolean loopE(String str){
-        return true; // <- this should be changed 
+        int amount = 0;
+        for (int i=0; i < str.length(); i++){
+            if (str.charAt(i) == 'e'){
+                amount++;
+            }
+        }
+        if (1 <= amount && amount <= 3){    
+            return true;
+        }else{
+            return false;
+        }
     }
 
     //Given a String str and int n return a larger string
@@ -26,7 +36,12 @@ public class Loops {
     //stringTimes("Code",2) ->"CodeCode"
     //stringTimes("Code",4) ->"CodeCodeCodeCode"
     public static String stringTimes(String str, int n) {
-        return null; // <- this should be changed 
+        for (int i=0; i < n; i++){
+            System.out.print(str);
+        }
+
+
+        return ""; // <- this should be changed 
     } 
 
     //Create a method Given a string, return the string where all of the "z"
@@ -70,7 +85,25 @@ public class Loops {
 
     public static void main(String[] args) {
         // Add code to help test your methods here
-
+        Scanner selection = new Scanner(System.in);
+        System.out.println("Hi professor, which method would you like to run? \n1: loopE \n2: loopTimes \n3: stringZ \n4: sums");
+        int select = selection.nextInt();
+        if (select == 1){
+            Scanner e = new Scanner(System.in);
+            System.out.println("please enter word");
+            String eWord = e.nextLine();
+            System.out.println(loopE(eWord));
+            e.close();
+        }else if (select == 2){
+            Scanner times = new Scanner(System.in);
+            System.out.println("please enter your word");
+            String timesWord = times.nextLine();
+            System.out.println("please enter the number of times the word should be repeated");
+            int n = times.nextInt();
+            System.out.println(stringTimes(timesWord, n));
+            times.close();
+    }
+    selection.close();
     }
     
 }
