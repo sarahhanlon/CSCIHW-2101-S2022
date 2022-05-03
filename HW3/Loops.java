@@ -1,6 +1,8 @@
 package HW3;
 import java.util.Scanner;
 
+import javax.sql.rowset.spi.SyncResolver;
+
 public class Loops {
 
     //NOTE: DO NOT change anything in the boiler plate
@@ -41,7 +43,7 @@ public class Loops {
         }
 
 
-        return ""; // <- this should be changed 
+        return "";
     } 
 
     //Create a method Given a string, return the string where all of the "z"
@@ -51,10 +53,22 @@ public class Loops {
     //stringT("zHelloz") -> "zHelloz"
     //stringT("nozthaznks") -> "nothanks"
     //stringT("xksiazdjaasldzsajzasdz") -> "xksiadjaasldsajasdz"
-    public static String stringZ(String str){
-        return null; // <- this should be changed 
+    public static String stringZ(String str, char z){
+        int j = str.length()-1;
+        String newString = "";
+        for (int i = 0; i < str.length(); i++){
+            if (str.charAt(i) == 'z' && str.charAt(i) != 'z'){
+                newString += str.charAt(i);
+            }if (i >= 0 && str.charAt(i) != 'z' && str.charAt(i) != 'z'){
+                newString += str.charAt(i);
+            }if (i == 0 && str.charAt(i) == 'z'){
+                newString += str.charAt(i);
+            }if (i == j && str.charAt(i) == 'z'){
+                newString += str.charAt(i);
+            }
+            }
+            return newString;
     }
-
     //Create a method that contains a while loop that allows for
     //The user to input numbers until the number 0 is entered. Each time a number is 
     //entered the total will be summed and then prompted for a second number. 
@@ -80,13 +94,27 @@ public class Loops {
     // The total so far is 27.
     // Number: 0
     // TOTAL ENDED --- The total is 27.
-    public static void sums(){
-    }
+    public static void sums(int num){
+        int sum = num;
+        Scanner numb = new Scanner(System.in);
+        while (num != 0){
+            System.out.print("Number: ");
+            int newNum = numb.nextInt();
+            if (newNum == 0){
+                System.out.println("TOTAL ENDED --- The total is " + sum + ".");
+                break;
+            }
+            sum += newNum;
+            System.out.println("The total so far is: " + sum);
+        }
+            
+        }
 
     public static void main(String[] args) {
         // Add code to help test your methods here
         Scanner selection = new Scanner(System.in);
-        System.out.println("Hi professor, which method would you like to run? \n1: loopE \n2: loopTimes \n3: stringZ \n4: sums");
+        // this menu is to test them easier when im working on more than one
+        System.out.println("Hello, which method would you like to run? \n1: loopE \n2: loopTimes \n3: stringZ \n4: sums");
         int select = selection.nextInt();
         if (select == 1){
             Scanner e = new Scanner(System.in);
@@ -95,14 +123,27 @@ public class Loops {
             System.out.println(loopE(eWord));
             e.close();
         }else if (select == 2){
-            Scanner times = new Scanner(System.in);
+            Scanner loop = new Scanner(System.in);
             System.out.println("please enter your word");
-            String timesWord = times.nextLine();
+            String timesWord = loop.nextLine();
             System.out.println("please enter the number of times the word should be repeated");
-            int n = times.nextInt();
+            int n = loop.nextInt();
             System.out.println(stringTimes(timesWord, n));
-            times.close();
-    }
+            loop.close();
+        }else if (select == 3){
+            Scanner z = new Scanner(System.in);
+            System.out.println("please enter word");
+            String zWord = z.nextLine();
+            System.out.println(stringZ(zWord, 'z'));
+            z.close();
+        }else if (select == 4){
+            Scanner s = new Scanner(System.in);
+            System.out.println("I will add up the numbers you give me...");
+            int sumNum = s.nextInt();
+            System.out.println("The total so far is: " + sumNum);
+            sums(sumNum);
+            s.close();
+        }
     selection.close();
     }
     
