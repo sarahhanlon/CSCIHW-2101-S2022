@@ -86,18 +86,18 @@ public class Medals {
         System.out.println("          Total    Gold     Silver  Bronze   X");
         int rows = counts.length;
         int cols = counts[0].length; 
-        ArrayList<Integer> medalCounts = new ArrayList<Integer>(rows);
-        int sum;
-        for (int i = 0; i < cols; i++){
+        int sum = 0;
+        ArrayList<Integer> medalCounts = new ArrayList<Integer>();
+        for (int i = 0; i < cols ; i++){
             sum = 0;
-            for (int j = 0; j < rows; j++){
+            for (int j = 0; j <= 2; j++){
                 sum += counts[i][j];
-                
             }
             medalCounts.add(sum);
-           System.out.println(medalCounts); 
+           
         }
         
+        System.out.println(medalCounts); 
         // TODO
         // Print countries, counts, and row totals (IE total medals by country)
         // for formatting use these printf statements
