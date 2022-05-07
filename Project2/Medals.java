@@ -95,9 +95,9 @@ public class Medals {
                 
             }
             medalCounts.add(sum);
-           
+           System.out.println(medalCounts); 
         }
-        System.out.println(medalCounts); 
+        
         // TODO
         // Print countries, counts, and row totals (IE total medals by country)
         // for formatting use these printf statements
